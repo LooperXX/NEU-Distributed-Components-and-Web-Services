@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.css">
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <title>Face2u</title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $('.parallax').parallax();
+        $(".button-collapse").sideNav();
+        });
+
+    </script>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="/" class="brand-logo center"><i class="Medium material-icons">face</i>Face2u</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/face">人脸识别_本地视频</a></li>
+                <li><a href="/face_webcam">人脸识别_摄像头</a></li>
+                <li><a href="/face_beauty">美颜 颜值与肤质评分</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="parallax-container" style="height:400px;">
+    <div class="parallax"><img src="../static/images/parallax1.jpg"></div>
+</div>
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="large material-icons">visibility</i></h2>
+                    <h5 class="center">面部关键点</h5>
+
+                    <p class="light">&nbsp;&nbsp;使用最新的Face-api.js开源库，实现浏览器内的人脸检测与人脸关键点的抓取，无须配置任何环境。采用的Tiny Face
+                        Detector是对Tiny Yolo V2的简化版本，做到了完美的实时性。</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="large material-icons">face</i></h2>
+                    <h5 class="center">面部分析</h5>
+
+                    <p class="light">&nbsp;&nbsp;使用Face++ 旷视人工智能开放平台提供的API，完成面部情绪识别，年龄、性别与人种检测，颜值评价，肤质评价以及美颜效果。</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="large material-icons">work</i></h2>
+                    <h5 class="center">便捷使用</h5>
+
+                    <p class="light">&nbsp;&nbsp;方便您根据面部关键点与面部分析数据：调整自己的面部表情，增强自身的演讲、面试、辩论时刻的表情控制能力；了解自己的颜值、肤质的情况；获得简单的美颜效果。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+<div class="parallax-container" style="height:300px;">
+    <div class="parallax"><img src="../static/images/parallax2.jpg"></div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

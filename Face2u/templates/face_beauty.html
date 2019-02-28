@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.css">
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/dist/vue.min.js"></script>
+    <script src="../static/js/face_beauty.js"></script>
+    <script src="../static/dist/echarts.min.js"></script>
+    <title>Face2u</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="/" class="brand-logo center"><i class="Medium material-icons">face</i>Face2u</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/face">人脸识别_本地视频</a></li>
+                <li><a href="/face_webcam">人脸识别_摄像头</a></li>
+                <li><a href="/face_beauty">美颜 颜值与肤质评分</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="parallax-container" style="height:400px;">
+    <div class="parallax"><img src="../static/images/parallax1.jpg"></div>
+</div>
+<div class="section white">
+    <div class="row center-align">
+        <div class="col s6">
+            <div class="row">
+                <br>
+                <a class="waves-effect waves-light btn" id="snap"><i class="material-icons left">stars</i>截屏</a>
+                <br><br>
+            </div>
+            <video id="video" width="640" height="480" autoplay></video>
+        </div>
+        <div class="col s6">
+            <div class="row">
+                <div class="input-field col s4">
+                    <a class="waves-effect waves-light btn" id="beauty"><i class="material-icons left">mode_edit</i>美颜</a>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="0~100" id="whitening" value="50" type="number" min="0" max="100" step="1"
+                           class="validate">
+                    <label for="whitening">美白</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="0~100" id="smoothing" value="50" type="number" min="0" max="100" step="1"
+                           class="validate">
+                    <label for="smoothing">磨皮</label>
+                </div>
+            </div>
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row " id="face_beauty" style="display: none">
+            <div class="col s6 center-align ">
+                <div>
+                    <p class="waves-effect waves-light btn">美颜结果</p>
+                    <img id="face_" src="#">
+                </div>
+                <br>
+                <div class="center-align " id="GraphMain" style="width: 800px;height:600px;"></div>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s2">
+                <label for="Gender">性别:</label>
+                <input v-model="Gender" disabled value="-" id="Gender" type="text" class="bold">
+                <label for="Age">年龄:</label>
+                <input v-model="Age" disabled value="-" id="Age" type="text" class="bold">
+
+                <label for="female_score">女性评分:</label>
+                <input v-model="female_score" disabled value="-" id="female_score" type="text" class="bold">
+                <label for="male_score">男性评分:</label>
+                <input v-model="male_score" disabled value="-" id="male_score" type="text" class="bold">
+
+                <label for="ethnicity">人种:</label>
+                <input v-model="ethnicity" disabled value="-" id="ethnicity" type="text" class="bold">
+
+                <label for="skinstatus_health">皮肤健康指数:</label>
+                <input v-model="skinstatus_health" disabled value="-" id="skinstatus_health" type="text" class="bold">
+                <label for="skinstatus_stain">色斑指数:</label>
+                <input v-model="skinstatus_stain" disabled value="-" id="skinstatus_stain" type="text" class="bold">
+                <label for="skinstatus_acne">青春痘指数:</label>
+                <input v-model="skinstatus_acne" disabled value="-" id="skinstatus_acne" type="text" class="bold">
+                <label for="skinstatus_dark_circle">黑眼圈指数:</label>
+                <input v-model="skinstatus_dark_circle" disabled value="-" id="skinstatus_dark_circle" type="text"
+                       class="bold">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="parallax-container" style="height:300px;">
+    <div class="parallax"><img src="../static/images/parallax2.jpg"></div>
+</div>
+</body>
+</html>

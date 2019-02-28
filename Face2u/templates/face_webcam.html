@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.css">
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/dist/vue.min.js"></script>
+    <script src="../static/dist/face-api.js"></script>
+    <script src="../static/dist/echarts.min.js"></script>
+    <script src="../static/js/faceDetectionControl_webcam.js"></script>
+    <script src="../static/js/drawing.js"></script>
+    <title>Face2u</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="/" class="brand-logo center"><i class="Medium material-icons">face</i>Face2u</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/face">人脸识别_本地视频</a></li>
+                <li><a href="/face_webcam">人脸识别_摄像头</a></li>
+                <li><a href="/face_beauty">美颜 颜值与肤质评分</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="parallax-container" style="height:400px;">
+    <div class="parallax"><img src="../static/images/parallax1.jpg"></div>
+</div>
+<div class="section white">
+    <div class="row valign-wrapper center-align">
+        <div class="col s1"></div>
+        <div class="col s2">
+            <div class="row left-align">
+                <div class="row">
+                    <!-- check boxes -->
+                    <p>
+                        <input type="checkbox" id="withFaceLandmarksCheckbox"
+                               onchange="onChangeWithFaceLandmarks(event)"/>
+                        <label for="withFaceLandmarksCheckbox">Detect Face Landmarks</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="hideBoundingBoxesCheckbox"
+                               onchange="onChangeHideBoundingBoxes(event)"/>
+                        <label for="hideBoundingBoxesCheckbox">Hide Bounding Boxes</label>
+                    </p>
+                    <!-- check boxes -->
+
+                    <!-- fps_meter -->
+                    <div id="fps_meter" class="row">
+                        <div>
+                            <label for="time">Time:</label>
+                            <input disabled value="-" id="time" type="text" class="bold">
+                            <label for="fps">Estimated Fps:</label>
+                            <input disabled value="-" id="fps" type="text" class="bold">
+                        </div>
+                    </div>
+                    <!-- fps_meter -->
+
+                </div>
+                <div id="tiny_face_detector_controls">
+                    <div class="row">
+                        <div class="row">
+                            <label for="inputSize">Input Size:</label>
+                            <select id="inputSize">
+                                <option value="128">128 x 128</option>
+                                <option value="160">160 x 160</option>
+                                <option value="224">224 x 224</option>
+                                <option value="320">320 x 320</option>
+                                <option value="416">416 x 416</option>
+                                <option value="512">512 x 512</option>
+                                <option value="608">608 x 608</option>
+                            </select>
+                            <label>Input Size</label>
+                        </div>
+                        <div class="row">
+                            <label for="scoreThreshold">Score Threshold:</label>
+                            <input disabled value="0.5" id="scoreThreshold" type="text" class="bold">
+                        </div>
+                        <button class="waves-effect waves-light btn" onclick="onDecreaseScoreThreshold()">
+                            <i class="material-icons">-</i>
+                        </button>
+                        <button class="waves-effect waves-light btn" onclick="onIncreaseScoreThreshold()">
+                            <i class="material-icons">+</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <video onplay="onPlay(this)" id="inputVideo" autoplay></video>
+            <canvas id="overlay" style="position: absolute;"></canvas>
+        </div>
+        <div class="col s2">
+            <div class="row">
+                <a class="waves-effect waves-light btn" id="button_analysis" style="display: none"
+                   onclick="emotion_analysis()"><i class="material-icons left">album</i>面部情绪分析</a>
+                <br><br>
+                <img id="face_crop" alt="crop_face" src="#"
+                     style="max-width: 200px; max-height: 200px;display: none">
+            </div>
+        </div>
+    </div>
+    <div class="row center-align container">
+        <div class="row" id="face_return" style="display: none">
+            <div class="col s3">
+                <div class="center-align ">
+                    <img id="face_detect" src="#">
+                </div>
+                <br>
+                <label for="Gender">性别:</label>
+                <input v-model="Gender" disabled value="-" id="Gender" type="text" class="bold">
+                <label for="Age">年龄:</label>
+                <input v-model="Age" disabled value="-" id="Age" type="text" class="bold">
+            </div>
+            <div class="col s9">
+                <div id="GraphMain" style="width: 800px;height:500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax-container" style="height:300px;">
+    <div class="parallax"><img src="../static/images/parallax2.jpg"></div>
+</div>
+</body>
+<script>
+
+</script>
+</html>
